@@ -13,4 +13,4 @@ jobs:
           echo "Runner Name: $RUNNER_NAME"
           echo "Runner OS: $RUNNER_OS"
           echo "Runner Architecture: $RUNNER_ARCH"
-          echo "the custom env name: $NAME"
+          echo "the custom env name: ${{ vars.NAME }}"
