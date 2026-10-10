@@ -1,4 +1,4 @@
-name: testing filter & events
+name: testing filter & activity types
 on:
     push:
         branches:
@@ -21,4 +21,5 @@ jobs:
         - name: testing workflow
           run: |
             echo "The event name is $GITHUB_EVENT_NAME"
-            echo "THe ref branch is $GITHUB_HEAD_REF"
+            echo "The ref branch of pull request is $GITHUB_HEAD_REF"
+            echo "The ref branch of push request $GITHUB_REF"
