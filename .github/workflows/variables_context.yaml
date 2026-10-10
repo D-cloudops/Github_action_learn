@@ -9,6 +9,7 @@ env:
 jobs:
   demo-job:
     runs-on: ubuntu-latest
+    environment: test  
     steps:
     - name: env variable
       run: |
