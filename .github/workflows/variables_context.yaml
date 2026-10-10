@@ -1,0 +1,41 @@
+name: variable context & expression
+on:
+  push:
+
+env:
+  APPLICATION_NAME: payment-service
+  DEPLOYMENT_ENVIRONMENT: production
+
+jobs:
+  demo-job:
+    runs-on: ubuntu-latest
+    steps:
+    - name: env variable
+      run: |
+          echo "========== DEFAULT VARIABLES =========="
+          echo "Event Name: $GITHUB_EVENT_NAME"
+          echo "Branch Name: $GITHUB_REF_NAME"
+          echo "Commit SHA: $GITHUB_SHA"
+          echo "Runner OS: $RUNNER_OS"
+
+          echo ""
+
+          echo "========== CUSTOM VARIABLES =========="
+          echo "Application Name: $APPLICATION_NAME"
+          echo "Deployment Environment: $DEPLOYMENT_ENVIRONMENT"
+          echo "Name: ${{ vars.Name }}"
+
+          echo "========== EXPRESSION EVALUATION =========="
+          echo "Is Main Branch: ${{ github.ref == 'refs/heads/main' }}"
+          echo "Is Feature Branch: ${{ startsWith(github.ref_name, 'feature') }}"
+
+    - name: Demonstrate Feature Branch Condition
+      if: ${{ startsWith(github.ref_name, 'feature') }}
+      run: |
+        echo "Feature branch detected successfully"
+
+    - name: Demonstrate Main Branch Condition
+      if: ${{ github.ref == 'refs/heads/main' }}
+      run: |
+        echo "Main branch deployment logic triggered"
+  

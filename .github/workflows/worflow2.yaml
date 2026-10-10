@@ -1,6 +1,9 @@
 name: understanding context variable
 
-on: push
+on: 
+  push:
+    branches:
+      - main
 
 jobs:
   runner-info:
