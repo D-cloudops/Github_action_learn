@@ -1,0 +1,25 @@
+name: testing filter & activity types
+on:
+    push:
+        branches:
+            - "develop"
+            - "feature/*"
+        paths:
+            - "app/**"
+            - "docker/**"
+    pull_request:
+        types:
+            - opened
+            - synchronize
+            - closed
+        branches:
+            - master
+jobs:
+    validation-job:
+        runs-on: ubuntu-latest
+        steps:
+        - name: testing workflow
+          run: |
+            echo "The event name is $GITHUB_EVENT_NAME"
+            echo "The ref branch of pull request is $GITHUB_HEAD_REF"
+            echo "The ref branch of push request $GITHUB_REF"
