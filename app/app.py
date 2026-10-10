@@ -1,1 +1,1 @@
-printf("App running successfully")
+printf("App running successfull")
