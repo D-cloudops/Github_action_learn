@@ -1,1 +1,1 @@
-printf("App running successfull")
+printf("Testing synchronize event type")
