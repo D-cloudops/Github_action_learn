@@ -6,6 +6,7 @@ on:
         environment:
             type: string
             default: prod
+            required: true
 
 jobs:
    manual_workflow:
