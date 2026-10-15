@@ -1,0 +1,16 @@
+name: Inputs
+
+on:
+ workflow_dispatch:
+    inputs:
+        environment:
+            type: string
+            default: prod
+            required: true
+
+jobs:
+   manual_workflow:
+     runs-on: ubuntu:latest
+     steps:
+        - name: testing
+          run: "echo Env: ${{ inputs.environment }}"
