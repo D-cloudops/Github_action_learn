@@ -10,7 +10,7 @@ on:
 
 jobs:
     payment_test:
-        runs-on: ubuntu
+        runs-on: ubuntu-latest
         steps:
         - name: run_payment_test
           if: ${{ inputs.payment_test }}
