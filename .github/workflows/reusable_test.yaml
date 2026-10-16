@@ -15,13 +15,12 @@ jobs:
         - name: run_payment_test
           if: ${{ inputs.payment_test }}
           run: echo "payment test successfull"
-
     paymemt_call:
         needs: payment_test
         runs-on: ubuntu-latest
         steps:
         - name: calling workflow
-          uses: '.github/workflows/reusable_workflow.yaml@master'
+          uses: './.github/workflows/reusable_workflow.yaml@master'
           with:
            payment_service_name: 'pypal'
            payment_url: 'pypal.co.in'
