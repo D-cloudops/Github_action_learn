@@ -1,7 +1,7 @@
 name: reusable_payment_microservice_test
 
 on:
-    workflow_dispatch:
+    workflow_call:
         inputs:
          payment_service_name:
             required: true
