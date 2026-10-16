@@ -1,0 +1,23 @@
+name: reusable_payment_microservice_test
+
+on:
+    workflow_dispatch:
+        inputs:
+         payment_service_name:
+            required: true
+            type: string
+         payment_url:
+            required: true
+            type: string
+
+jobs: 
+    payments_service_test:
+        runs-on: ubuntu-latest
+        steps:
+        - name: payment_service_test
+          run: echo "THe payment service ${{ inputs.payment_service_name }} is running successfully"
+        - name: payment_url
+          run: echo "To call payment service use ${{ inputs.payment_url }}"
+
+
+        

@@ -3,6 +3,8 @@ on:
   push:
     branches:
       - main
+    paths:
+      - '.github/worklows/workflow1.yaml'
 jobs:
   job1:
     runs-on: ubuntu-latest
