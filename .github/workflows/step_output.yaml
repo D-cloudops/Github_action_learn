@@ -26,9 +26,15 @@ jobs:
         - name: fetching workflow output
           id: workflow
           uses: ./.github/workflows/workflow_output.yaml@master
-        - name: using workflow output
-          run: echo "The Runner is ${{ steps.workflow.outputs.runner }}"
+        outputs:
+            Runner: ${{ steps.workflow.outputs.runner }}
 
+    workflow_output_consumer:
+        needs: job_output_consumer
+        runs-on: ubuntu-latest
+        steps: 
+        - name: outputs display
+          run: echo "The Runner was ${{ needs.job_output_consumer.outputs.Runner }}"
         
 
     
