@@ -1,4 +1,4 @@
-name: steps_output_test
+name: jobs_output_test
 on:
     workflow_dispatch:
         inputs:
@@ -14,9 +14,18 @@ jobs:
           id: version
           run: |
             echo "name=${{ inputs.name }}-${{ job.check_run_id  }}" >> $GITHUB_OUTPUT
-        - name: output consumer
-          run:
-            echo "the output is ${{ steps.version.outputs.name }}"
-            
+        outputs:
+            name: ${{ steps.version.outputs.name }}
+    
+    job_output_consumer:
+        needs: step_output_test
+        runs-on: ubuntu-latest
+        steps:
+        - name: Job output fetch
+          run: echo "The job output is ${{ needs.step_output_test.outputs.name}}"
+
+    
+
+
             
 
