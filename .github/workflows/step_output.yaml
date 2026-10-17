@@ -27,7 +27,7 @@ jobs:
          uses: ./.github/workflows/workflow_output.yaml
 
     workflow_output_consumer:
-        needs: workflow_output_callers
+        needs: workflow_output_caller
         runs-on: ubuntu-latest
         steps: 
         - name: outputs display
