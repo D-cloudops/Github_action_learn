@@ -23,8 +23,10 @@ jobs:
         steps:
         - name: Job output fetch
           run: echo "The job output is ${{ needs.step_output_test.outputs.name}}"
+
     workflow_output_caller:
-         uses: ./.github/workflows/workflow_output.yaml
+        needs: job_output_consumer
+        uses: ./.github/workflows/workflow_output.yaml
 
     workflow_output_consumer:
         needs: workflow_output_caller
