@@ -1,0 +1,22 @@
+name: steps_output_test
+on:
+    workflow_dispatch:
+        inputs:
+         name: 
+            type: string
+            required: true
+
+jobs:
+    step_output_test:
+        runs-on: ubuntu-latest
+        steps:
+        - name: output generator
+          id: version
+          run: |
+            echo "name=${{ inputs.name }}-${{ job.check_run_id  }}" >> $GITHUB_OUTPUT
+        - name: output consumer
+          run:
+            echo "the output is ${{ steps.version.outputs.name }}"
+            
+            
+
