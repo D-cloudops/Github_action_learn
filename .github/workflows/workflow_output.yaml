@@ -7,7 +7,7 @@ on:
 
 jobs:
     Workflow_output:
-        runs-on: ubuntu:latest
+        runs-on: ubuntu-latest
         steps:
         - name: output-generator
           id: runner
