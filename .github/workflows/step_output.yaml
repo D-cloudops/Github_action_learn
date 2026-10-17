@@ -25,7 +25,7 @@ jobs:
           run: echo "The job output is ${{ needs.step_output_test.outputs.name}}"
         - name: fetching workflow output
           id: workflow
-          uses: './.github/workflow/workflow_output.yaml'
+          uses: './.github/workflows/workflow_output.yaml'
         - name: using workflow output
           run: echo "The Runner is ${{ steps.workflow.outputs.runner }}"
 
